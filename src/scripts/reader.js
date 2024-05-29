@@ -11,10 +11,13 @@ async function load() {
   }
   console.log("reader.js loaded");
 
-  let currentPage = "";
+  let currentPage = "index";
+  if (window.location.hash && window.location.hash !== "#") {
+    currentPage = window.location.hash.slice(1);
+  }
 
   // load the home page
-  update("index");
+  update(currentPage);
 
 
   addEventListener("hashchange", (_) => {

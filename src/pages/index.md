@@ -1,3 +1,5 @@
 # home page
 
-<p color="#ffa">colored text</p>
+<p color="#0fa">colored text</p>
+
+<a href="#test">a test page</a>
