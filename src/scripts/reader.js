@@ -23,7 +23,7 @@ async function load() {
   addEventListener("hashchange", (_) => {
     const hash = window.location.hash;
     let page = hash.slice(1);
-    if (page === "index") page = "";
+    if (page === "") page = "index";
     if (page !== currentPage) {
       currentPage = page;
       update(page);
