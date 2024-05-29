@@ -7,3 +7,9 @@ body {
   color: black;
   font-family: Verdana;
 }
+
+#reader {
+  width: 100%;
+  height: 80vh;
+  overflow: scroll;
+}
