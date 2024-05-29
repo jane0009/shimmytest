@@ -24,16 +24,17 @@
 // };
 
 
-
+// actual extension
 var customExt = function() {
-  var test = {
+  var hot_color_swapping = {
     type: "lang",
-    regex: /markdown/g,
-    replace: "showdown",
+    regex: /color="(.+)"/g,
+    replace: "style='color: $1;'",
   };
-  return [test];
+  return [hot_color_swapping];
 };
 
+// loader
 (function (extension) {
   if (typeof showdown !== 'undefined') {
     // global (browser or nodejs global)

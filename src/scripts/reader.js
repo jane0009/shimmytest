@@ -12,15 +12,9 @@ async function load() {
   console.log("reader.js loaded");
 
   let currentPage = "";
-  let md = "";
-  let content = "";
 
-  // load index page from pages/index.md
-  const req = await fetch("pages/index.md");
-  md = await req.text();
-  content = window.mkdown.makeHtml(md);
-  console.log(req, md, content);
-  update(content);
+  // load the home page
+  update("index");
 
 
   addEventListener("hashchange", (_) => {
@@ -28,12 +22,16 @@ async function load() {
     let page = hash.slice(1);
     if (page === "index") page = "";
     if (page !== currentPage) {
-      //
+      currentPage = page;
+      update(page);
     }
   });
 }
 
-function update(content) {
+async function update(page) {
+  const req = await fetch(`pages/${page}.md`);
+  const md = await req.text();
+  const content = window.mkdown.makeHtml(md);
   const reader = document.getElementById("reader");
   reader.innerHTML = `
   <div class="container">
